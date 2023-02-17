@@ -77,19 +77,7 @@ const products = [
     rating: 4,
     numReviews: 4,
   },
-  {
-    _id: '6',
-    name: 'Amazon Echo Dot 3rd Generation',
-    image: '',
-    description:
-      'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
-    brand: 'Amazon',
-    category: 'Electronics',
-    price: 29.99,
-    countInStock: 0,
-    rating: 4,
-    numReviews: 4,
-  },
+
 ]
 
 export default products
