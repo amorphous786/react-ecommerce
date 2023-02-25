@@ -2,7 +2,9 @@ import React from 'react'
 import {Link,useParams,useNavigate} from 'react-router-dom';
 import {Row,Col,Image,ListGroup,Card,Button} from 'react-bootstrap';
 import Rating from '../components/Rating'
-import products from '../products'
+import products from "../products";
+import axios from 'axios';
+import {useEffect,useState} from 'react'
 
 // match prop is this which is returned by Route component to the linked element
 // it gives a match props automatically to the element's component's props
@@ -16,9 +18,20 @@ import products from '../products'
 const  ProductScreen = ()=> {
       // console.log("before error:",match)
       const {id} = useParams()
-      console.log('id',id)
-      const product = products.find((p)=>p._id===id)
 
+      
+      // const product = products.find((p)=>p._id===id)
+      const [product,setProduct] = useState({})
+
+      useEffect(() => {
+
+            const fetchItem = async ()=>{
+                   const _product = await axios.get(`http://localhost:5000/api/products/${id}`)
+
+                   setProduct(_product.data)
+            }
+            fetchItem();
+      }, []);
       return (
                   <>
                         <Link className='btn btn-light my-3' to='/'>
