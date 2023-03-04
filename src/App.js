@@ -10,6 +10,7 @@ import UserEditScreen from './screens/UserEditScreen';
 import UserListScreen from './screens/UserListScreen';
 import './bootstrap.min.css';
 import './index.css';
+import CartScreen from "./screens/CartScreen";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
 
               <Route path='/' element={<HomeScreen/>} exact></Route>
               <Route path='/product/:id/' element={<ProductScreen/>}></Route>
+              <Route path='/cart/:id' element={<CartScreen/>}></Route>
               {/* <HomeScreen/> */}
             </Routes>
             </Container>
