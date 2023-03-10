@@ -26,7 +26,7 @@ function App() {
 
               <Route path="/admin/userList" element={<UserListScreen/>}></Route>
               <Route path="/admin/user/:id/edit" element={<UserEditScreen/>}></Route>
-              <Route path="/login" element={<LoginScreen/>}></Route>
+              {/* <Route path="/login" element={<LoginScreen/>}></Route> */}
 
               <Route path='/' element={<HomeScreen/>} exact></Route>
               <Route path='/product/:id/' element={<ProductScreen/>}></Route>
