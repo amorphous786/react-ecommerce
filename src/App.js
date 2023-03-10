@@ -26,10 +26,11 @@ function App() {
 
               <Route path="/admin/userList" element={<UserListScreen/>}></Route>
               <Route path="/admin/user/:id/edit" element={<UserEditScreen/>}></Route>
-              <Route path="/profile" element={<LoginScreen/>}></Route>
+              <Route path="/login" element={<LoginScreen/>}></Route>
 
               <Route path='/' element={<HomeScreen/>} exact></Route>
               <Route path='/product/:id/' element={<ProductScreen/>}></Route>
+              <Route path='/cart/' element={<CartScreen/>} exact></Route>
               <Route path='/cart/:id' element={<CartScreen/>}></Route>
               {/* <HomeScreen/> */}
             </Routes>
