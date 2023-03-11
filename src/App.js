@@ -11,6 +11,8 @@ import UserListScreen from './screens/UserListScreen';
 import './bootstrap.min.css';
 import './index.css';
 import CartScreen from "./screens/CartScreen";
+import ShippingScreen from "./screens/ShippingScreen";
+import {PaymentScreen} from "./screens/PaymentScreen";
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
               <Route path="/register" element={<RegisterScreen/>}></Route>
               <Route path="/login" element={<LoginScreen/>}></Route>
 
+
               <Route path="/admin/userList" element={<UserListScreen/>}></Route>
               <Route path="/admin/user/:id/edit" element={<UserEditScreen/>}></Route>
               {/* <Route path="/login" element={<LoginScreen/>}></Route> */}
@@ -32,6 +35,8 @@ function App() {
               <Route path='/product/:id/' element={<ProductScreen/>}></Route>
               <Route path='/cart/' element={<CartScreen/>} exact></Route>
               <Route path='/cart/:id' element={<CartScreen/>}></Route>
+              <Route path='/payment' element={<PaymentScreen/>}></Route>
+              <Route path='/shipping' element={<ShippingScreen/>} ></Route>
               {/* <HomeScreen/> */}
             </Routes>
             </Container>

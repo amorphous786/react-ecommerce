@@ -20,12 +20,13 @@ function LoginScreen() {
   const navigate = useNavigate();
   const redirect = location.search ? location.search.split('=')[1]:'/'
   useEffect(()=>{
-    // console.log('daddy is here?',userInfo)
-    if (userInfo){
+    console.log('daddy is here?',userInfo)
+    if ((userInfo ? userInfo.length !=0 : userInfo)){
       // console.log('dodood')
       // history.pushState(redirect)
       navigate(redirect)
     }
+
   },[navigate,userInfo,redirect]);
   const submitHandler = (e)=>{
     e.preventDefault();
