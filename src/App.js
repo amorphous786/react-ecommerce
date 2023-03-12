@@ -13,6 +13,7 @@ import './index.css';
 import CartScreen from "./screens/CartScreen";
 import ShippingScreen from "./screens/ShippingScreen";
 import {PaymentScreen} from "./screens/PaymentScreen";
+import { PlaceOrderScreen } from "./screens/PlaceOrderScreen";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
               <Route path='/cart/:id' element={<CartScreen/>}></Route>
               <Route path='/payment' element={<PaymentScreen/>}></Route>
               <Route path='/shipping' element={<ShippingScreen/>} ></Route>
+              <Route path='/placeorder' element={<PlaceOrderScreen/>} ></Route>
               {/* <HomeScreen/> */}
             </Routes>
             </Container>

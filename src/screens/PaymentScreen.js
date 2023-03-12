@@ -7,21 +7,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {savePaymentMethod} from '../actions/cartActions'
 export const PaymentScreen = () => {
-  // const [paymentMethod,setPaymentMethod]=useState('PayPal')
+  const [paymentMethod,setPaymentMethod]=useState('PayPal')
 
-  // const navigate = useNavigate()
-  // const dispatch = useDispatch()
-  // const cart = useSelector(state=>state.cart)
-  // const {shippingAddress} = cart;
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const cart = useSelector(state=>state.cart)
+  const {shippingAddress} = cart;
 
-  // if(!shippingAddress){
-  //   navigate('/shipping');
-  // }
+  if(!shippingAddress){
+    navigate('/shipping');
+  }
 
   const submitHandler =(e)=>{
-    // e.preventDefault()
-    // dispatch(savePaymentMethod(paymentMethod))
-    // navigate('/placeorder');
+    e.preventDefault()
+    dispatch(savePaymentMethod(paymentMethod))
+    navigate('/placeorder');
   }
 
   return (
@@ -41,7 +41,7 @@ export const PaymentScreen = () => {
                 name='paymentMethod'
                 value='PayPal'
                 checked
-                // onChange={(e)=>setPaymentMethod(e.target.value)}
+                onChange={(e)=>setPaymentMethod(e.target.value)}
               >
 
               </Form.Check>
