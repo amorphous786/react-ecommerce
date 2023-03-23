@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
+import {createOrder} from "../actions/orderAction"
 import {CheckoutSteps} from '../components/CheckoutSteps';
-
+import { useNavigate } from 'react-router-dom';
 const PlaceOrderScreen = () => {
-  const cart = useSelector((state) => state.cart);
 
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+
+  const orderCreate = useSelector(state=>state.orderCreate)
+  const {order,success,error} = orderCreate
   //   Calculate prices
   const addDecimals = (num) => {
     return (Math.round(num * 100) / 100).toFixed(2);
@@ -23,8 +29,23 @@ const PlaceOrderScreen = () => {
     Number(cart.shippingPrice) +
     Number(cart.taxPrice)
   ).toFixed(2);
+
+  useEffect(() => {
+    if(success){
+      navigate(`/order/${order._id}`)
+    }
+  }, []);
+
   const placeOrderHandler = () => {
-    console.log('order');
+    createOrder({
+      orderItems:cart.Items,
+      shippingAddress:cart.shippingAddress,
+      paymentMethod:cart.paymentMethod,
+      itemsPrice:cart.itemsPrice,
+      shippingPrice:cart.shippingPrice,
+      taxPrice:cart.taxPrice,
+      totalPrice:cart.totalPrice
+      })
   };
   return (
     <>
@@ -109,6 +130,9 @@ const PlaceOrderScreen = () => {
                   <Col>Total</Col>
                   <Col>${cart.totalPrice}</Col>
                 </Row>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                {error && <Message variant='danger'>{error}</Message>}
               </ListGroup.Item>
               <ListGroup.Item>
                 <Button

@@ -4,12 +4,14 @@ import {composeWithDevTools} from 'redux-devtools-extension'//google chrome k sa
 import { productDetailsReducer, productListReducer } from "./reducers/productReducers"
 import { cartReducer } from "./reducers/cartReducers"
 import { userLoginReducer } from './reducers/userReducers'
+import { orderCreateReducer } from "./reducers/orderReducers"
 
 const reducer = combineReducers({
   productList:productListReducer,
   productDetails:productDetailsReducer,
   cart:cartReducer,
-  userLogin:userLoginReducer
+  userLogin:userLoginReducer,
+  orderCreate:orderCreateReducer
 })//all reducer will be here (for time being we dont)
 //reducer will report to store
 //we have some methods through which we manage our app / states
