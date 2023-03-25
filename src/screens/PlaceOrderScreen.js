@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Row, Col, ListGroup, Image, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,18 +34,18 @@ const PlaceOrderScreen = () => {
     if(success){
       navigate(`/order/${order._id}`)
     }
-  }, []);
+  }, [cart]);
 
   const placeOrderHandler = () => {
-    createOrder({
-      orderItems:cart.Items,
-      shippingAddress:cart.shippingAddress,
-      paymentMethod:cart.paymentMethod,
-      itemsPrice:cart.itemsPrice,
-      shippingPrice:cart.shippingPrice,
-      taxPrice:cart.taxPrice,
-      totalPrice:cart.totalPrice
-      })
+   dispatch( createOrder({
+    orderItems:cart.Items,
+    shippingAddress:cart.shippingAddress,
+    paymentMethod:cart.paymentMethod,
+    itemsPrice:cart.itemsPrice,
+    shippingPrice:cart.shippingPrice,
+    taxPrice:cart.taxPrice,
+    totalPrice:cart.totalPrice
+    }))
   };
   return (
     <>
